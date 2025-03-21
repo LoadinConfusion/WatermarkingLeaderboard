@@ -25,10 +25,10 @@
     <script>
         // Sample leaderboard data
         const data = [
-            { name: "Software 1", score: 95 },
-            { name: "Software 2", score: 89 },
-            { name: "Software 3", score: 78 },
-            { name: "Software 4", score: 92 }
+            { name: "Software 1", score: 95, score2: 35},
+            { name: "Software 2", score: 89, score2: 33},
+            { name: "Software 3", score: 78, score2: 45 },
+            { name: "Software 4", score: 92, score2: 62 }
         ];
         // Sort data by score (descending)
         data.sort((a, b) => b.score - a.score);
@@ -40,6 +40,7 @@
                 <td>${index + 1}</td>
                 <td>${entry.name}</td>
                 <td>${entry.score}</td>
+                <td>${entry.score2}</td>
             </tr>`;
             tableBody.innerHTML += row;
         });
