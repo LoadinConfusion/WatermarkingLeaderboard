@@ -4,11 +4,44 @@ body {
     text-align: center;
 }
 h1, h2, p {
-    color: #333;
+    color: #212A3E;
 }
+/* Tabs styling */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #F1F6F9;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.tab-button.active {
+    background-color: #394867;
+    color: white;
+    font-weight: bold;
+}
+.tab-button:hover {
+    background-color: #bbb;
+}
+/* Hide inactive tab content */
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+/* Leaderboard styling */
 table {
     width: 60%;
-    margin: 20px auto;
+    margin: auto;
     border-collapse: collapse;
     background: white;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -17,17 +50,19 @@ table {
 }
 th, td {
     padding: 12px;
-    border: 2px solid #333;
+    border: 2px solid #212A3E;
     text-align: center;
 }
 th {
-    background: #007bff;
+    background: #394867;
     color: white;
     font-size: 18px;
 }
+
 tr:nth-child(even) {
     background: #f2f2f2;
 }
+
 tr:nth-child(odd) {
     background: white;
 }
