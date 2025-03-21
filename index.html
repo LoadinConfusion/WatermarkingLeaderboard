@@ -8,42 +8,61 @@
 <body>
     <h1>Watermark Leaderboard</h1>
     <p>Scatterplot and Leaderboard regarding current softwares available for application, detection, and persistance of watermarks using LLM.</p>
-    <h2>Leaderboard</h2>
-    <table id="leaderboard">
-        <thead>
-            <tr>
-                <th>Ranking</th>
-                <th>WM</th>
-                <th>Detectability</th>
-                <th>Normalized Utility</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data will be inserted dynamically -->
-        </tbody>
-    </table>
-    <script>
-        // Sample leaderboard data
-        const data = [
-            { name: "Software 1", score: 95, score2: 35},
-            { name: "Software 2", score: 89, score2: 33},
-            { name: "Software 3", score: 78, score2: 45 },
-            { name: "Software 4", score: 92, score2: 62 }
-        ];
-        // Sort data by score (descending)
-        data.sort((a, b) => b.score - a.score);
-        // Get the table body
-        const tableBody = document.querySelector("#leaderboard tbody");
-        // Populate the table
-        data.forEach((entry, index) => {
-            const row = `<tr>
-                <td>${index + 1}</td>
-                <td>${entry.name}</td>
-                <td>${entry.score}</td>
-                <td>${entry.score2}</td>
-            </tr>`;
-            tableBody.innerHTML += row;
-        });
-    </script>
+    <!--<h2>Leaderboard</h2> -->
+    <!-- Tabs for leaderboard sections -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="switchTab(event, 'attack-free')">Attack-Free Environment</button>
+        <button class="tab-button" onclick="switchTab(event, 'attack-1')">Attack 1</button>
+        <button class="tab-button" onclick="switchTab(event, 'attack-2')">Attack 2</button>
+    </div>
+
+    <!-- Attack-Free Environment Leaderboard -->
+    <div id="attack-free" class="tab-content active">
+        <h2>Leaderboard - Attack-Free Environment</h2>
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>WM</th>
+                    <th>Detectability</th>
+                    <th>Normalized Utility</th>
+                </tr>
+            </thead>
+            <tbody id="attack-free-body"></tbody>
+        </table>
+    </div>
+
+    <!-- Attack 1 Leaderboard -->
+    <div id="attack-1" class="tab-content">
+        <h2>Leaderboard - Attack 1</h2>
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>WM</th>
+                    <th>Detectability</th>
+                    <th>Normalized Utility</th>
+                </tr>
+            </thead>
+            <tbody id="attack-1-body"></tbody>
+        </table>
+    </div>
+
+    <!-- Attack 2 Leaderboard -->
+    <div id="attack-2" class="tab-content">
+        <h2>Leaderboard - Attack 2</h2>
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>WM</th>
+                    <th>Detectability</th>
+                    <th>Normalized Utility</th>
+                </tr>
+            </thead>
+            <tbody id="attack-2-body"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
