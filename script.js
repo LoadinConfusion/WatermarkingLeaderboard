@@ -45,12 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Tab switching functionality
 function switchTab(event, tabId) {
-    // Hide all tab content
-    document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
-    document.querySelectorAll(".tab-button").forEach(tab => tab.classList.remove("active"));
+    // Hide all tab content (including headers)
+    document.querySelectorAll(".tab-content").forEach(tab => {
+        tab.style.display = "none"; 
+    });
 
-    // Show selected tab
-    document.getElementById(tabId).classList.add("active");
+    // Remove active class from all buttons
+    document.querySelectorAll(".tab-button").forEach(button => {
+        button.classList.remove("active");
+    });
+
+    // Show only the selected tab
+    document.getElementById(tabId).style.display = "block";
     event.currentTarget.classList.add("active");
 
     // Populate leaderboard for the selected tab
