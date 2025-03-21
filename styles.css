@@ -3,3 +3,8 @@ body {
     background: #F1F6F9;
     text-align: center;
 }
+
+canvas {
+    max-width: 600px;
+    margin-top: 20px;
+}
