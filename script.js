@@ -40,38 +40,50 @@ function populateLeaderboard(tabId) {
 }
 
 function renderScatterplot(tabId, data) {
-    const scatterplotContainer = document.getElementById(`${tabId}-scatterplot`);
-    scatterplotContainer.innerHTML = ""; // Clear existing plot
+    const ctx = document.getElementById(`scatter-${tabId}`).getContext("2d");
 
-    const svg = d3.select(scatterplotContainer)
-        .append("svg")
-        .attr("width", 400)
-        .attr("height", 400);
+    // Destroy existing chart instance if it exists
+    if (window[`${tabId}Chart`]) {
+        window[`${tabId}Chart`].destroy();
+    }
 
-    const xScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.score)])
-        .range([0, 400]);
-
-    const yScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.score2)])
-        .range([400, 0]);
-
-    svg.selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", d => xScale(d.score))
-        .attr("cy", d => yScale(d.score2))
-        .attr("r", 5)
-        .attr("fill", "blue");
-
-    svg.append("g")
-        .attr("transform", "translate(0,400)")
-        .call(d3.axisBottom(xScale));
-
-    svg.append("g")
-        .call(d3.axisLeft(yScale));
-};
+    // Create scatterplot
+    window[`${tabId}Chart`] = new Chart(ctx, {
+        type: "scatter",
+        data: {
+            datasets: [{
+                label: `${tabId} Scatterplot`,
+                data: data.map(entry => ({ x: entry.score, y: entry.score2, label: entry.name })),
+                backgroundColor: "rgba(75, 192, 192, 0.6)"
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.raw.label; // Show software name on hover
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Detectability"
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Normalized Utility"
+                    }
+                }
+            }
+        }
+    });
+}
 
 // Initialize leaderboards on page load
 document.addEventListener("DOMContentLoaded", () => {
