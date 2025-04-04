@@ -36,6 +36,41 @@ function populateLeaderboard(tabId) {
         </tr>`;
         tableBody.innerHTML += row;
     });
+    renderScatterplot(tabId, data); // Call to render the scatterplot
+}
+
+function renderScatterplot(tabId, data) {
+    const scatterplotContainer = document.getElementById(`${tabId}-scatterplot`);
+    scatterplotContainer.innerHTML = ""; // Clear existing plot
+
+    const svg = d3.select(scatterplotContainer)
+        .append("svg")
+        .attr("width", 400)
+        .attr("height", 400);
+
+    const xScale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.score)])
+        .range([0, 400]);
+
+    const yScale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.score2)])
+        .range([400, 0]);
+
+    svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xScale(d.score))
+        .attr("cy", d => yScale(d.score2))
+        .attr("r", 5)
+        .attr("fill", "blue");
+
+    svg.append("g")
+        .attr("transform", "translate(0,400)")
+        .call(d3.axisBottom(xScale));
+
+    svg.append("g")
+        .call(d3.axisLeft(yScale));
 }
 
 // Initialize leaderboards on page load

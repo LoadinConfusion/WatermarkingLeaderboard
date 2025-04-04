@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Scatterplot link-->
 </head>
 <body>
     <h1>Watermark Leaderboard</h1>
@@ -19,6 +20,7 @@
     <!-- Attack-Free Environment Leaderboard -->
     <div id="attack-free" class="tab-content active">
         <h2>Leaderboard - Attack-Free Environment</h2>
+        <canvas id="scatter-attack-free"></canvas> <!--scatterplot-->
         <table class="leaderboard">
             <thead>
                 <tr>
@@ -35,6 +37,7 @@
     <!-- Attack 1 Leaderboard -->
     <div id="attack-1" class="tab-content">
         <h2>Leaderboard - Attack 1</h2>
+        <canvas id="scatter-attack-1"></canvas> <!--scatterplot-->
         <table class="leaderboard">
             <thead>
                 <tr>
@@ -51,6 +54,7 @@
     <!-- Attack 2 Leaderboard -->
     <div id="attack-2" class="tab-content">
         <h2>Leaderboard - Attack 2</h2>
+        <canvas id="scatter-attack-2"></canvas> <!--scatterplot-->
         <table class="leaderboard">
             <thead>
                 <tr>
