@@ -6,6 +6,15 @@ body {
 h1, h2, p {
     color: #212A3E;
 }
+
+canvas {
+    width: 60%;
+    height: 300px;
+    margin: auto;
+    display: block;
+    border: 2px solid #212A3E;
+}
+
 /* Tabs styling */
 .tabs {
     display: flex;
