@@ -43,12 +43,12 @@ canvas {
 
 .tab-button {
     background-color: #F1F6F9;
-    border: none;
+    border: 1px solid #CBD5E1;
     padding: 10px 20px;
-    margin: 0 5px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .tab-button.active {
@@ -57,33 +57,38 @@ canvas {
     font-weight: bold;
 }
 .tab-button:hover {
-    background-color: #bbb;
+    background-color: #CBD5E1;
 }
 /* Hide inactive tab content */
 .tab-content {
     display: none;
+    padding: 20px 0;
 }
 .tab-content.active {
     display: block;
 }
 /* Leaderboard styling */
 table {
-    width: 60%;
-    margin: auto;
+    width: 80%;
+    margin: 20px auto;
     border-collapse: collapse;
     background: white;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border-radius: 8px;
 }
+
 th, td {
-    padding: 12px;
-    border: 2px solid #212A3E;
+    padding: 15px;
+    border: 1px solid #E2E8F0;
     text-align: center;
+    font-size: 1rem;
 }
+
 th {
     background: #394867;
     color: white;
-    font-size: 18px;
+    font-size: 1.2rem;
 }
 
 tr:nth-child(even) {
@@ -92,4 +97,13 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     background: white;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 10px 0;
+    background: #1E293B;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
 }
