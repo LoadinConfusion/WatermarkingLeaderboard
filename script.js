@@ -25,7 +25,13 @@ function populateLeaderboard(tabId) {
     tableBody.innerHTML = ""; // Clear existing rows
 
     const data = leaderboardData[tabId];
-    data.sort((a, b) => b.score - a.score); // Sort descending
+    if (tabId === "attack-free") {
+        // High y-axis (score) and high x-axis (score2) are good
+        data.sort((a, b) => b.score - a.score || b.score2 - a.score2);
+    } else {
+        // High y-axis (score) and low x-axis (score2) are good
+        data.sort((a, b) => b.score - a.score || a.score2 - b.score2);
+    }
 
     data.forEach((entry, index) => {
         const row = `<tr>
