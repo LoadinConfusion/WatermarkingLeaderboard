@@ -53,27 +53,40 @@ function renderScatterplot(tabId, data) {
         window[`${tabId}Chart`].destroy();
     }
 
-    const colors = data.map(() => `hsl(${Math.random() * 360}, 70%, 50%)`)
+    // Predefined distinct colors
+    const predefinedColors = [
+        "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF", "#33FFF5", "#F5FF33", "#FF8C33"
+    ];
+
+    // Generate unique colors for each data point
+    const colors = data.map((_, index) => predefinedColors[index % predefinedColors.length] || `hsl(${Math.random() * 360}, 70%, 50%)`);
 
     // Create scatterplot
     window[`${tabId}Chart`] = new Chart(ctx, {
         type: "scatter",
         data: {
-            datasets: [{
-                label: `${tabId} Scatterplot`,
-                data: data.map(entry => ({ x: entry.score2, y: entry.score, label: entry.name })),
-                backgroundColor: colors,
+            datasets: data.map((entry, index) => ({
+                label: entry.name, // Use the software name as the legend label
+                data: [{ x: entry.score2, y: entry.score }], // Single data point per dataset
+                backgroundColor: colors[index], // Assign unique color
                 pointRadius: 6,
                 pointHoverRadius: 8
-            }]
+            }))
         },
         options: {
             plugins: {
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            return context.raw.label; // Show software name on hover
+                            return `${context.dataset.label}: (${context.raw.x}, ${context.raw.y})`; // Show name and coordinates
                         }
+                    }
+                },
+                legend: {
+                    display: true, // Show legend
+                    labels: {
+                        usePointStyle: true, // Use dot style in the legend
+                        boxWidth: 10 // Adjust box size for better visibility
                     }
                 }
             },
