@@ -1,10 +1,28 @@
 body {
     margin: 0;
-    background: #F1F6F9;
+    font-family: 'Arial', sans-serif; /* Use a clean, professional font */
+    background: #F8FAFC; /* Light background for better readability */
+    color: #212A3E; /* Consistent text color */
     text-align: center;
+    line-height: 1.6;
 }
-h1, h2, p {
-    color: #212A3E;
+
+h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    color: #1E293B;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    color: #334155;
+}
+
+p {
+    font-size: 1rem;
+    margin: 10px 0 20px;
+    color: #475569;
 }
 
 canvas {
@@ -20,6 +38,7 @@ canvas {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    gap: 10px;
 }
 
 .tab-button {
