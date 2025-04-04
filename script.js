@@ -53,7 +53,7 @@ function renderScatterplot(tabId, data) {
         data: {
             datasets: [{
                 label: `${tabId} Scatterplot`,
-                data: data.map(entry => ({ x: entry.score, y: entry.score2, label: entry.name })),
+                data: data.map(entry => ({ x: entry.score2, y: entry.score, label: entry.name })),
                 backgroundColor: "navy",
                 pointRadius: 6,
                 pointHoverRadius: 8
@@ -73,13 +73,13 @@ function renderScatterplot(tabId, data) {
                 x: {
                     title: {
                         display: true,
-                        text: "Detectability"
+                        text: "Normalized Utility"
                     }
                 },
                 y: {
                     title: {
                         display: true,
-                        text: "Normalized Utility"
+                        text: "Detectability"
                     }
                 }
             }
