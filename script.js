@@ -55,8 +55,8 @@ function renderScatterplot(tabId, data) {
                 label: `${tabId} Scatterplot`,
                 data: data.map(entry => ({ x: entry.score, y: entry.score2, label: entry.name })),
                 backgroundColor: "navy",
-                pointRadius: 8,
-                pointHoverRadius: 10
+                pointRadius: 6,
+                pointHoverRadius: 8
             }]
         },
         options: {

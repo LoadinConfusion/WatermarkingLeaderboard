@@ -10,9 +10,9 @@ h1, h2, p {
 canvas {
     width: 60%;
     height: 300px;
-    margin: auto;
+    margin: 20px auto;
     display: block;
-    border: 2px solid #212A3E;
+    border: none;
 }
 
 /* Tabs styling */
