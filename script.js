@@ -53,6 +53,8 @@ function renderScatterplot(tabId, data) {
         window[`${tabId}Chart`].destroy();
     }
 
+    const colors = data.map(() => `hsl(${Math.random() * 360}, 70%, 50%)`)
+
     // Create scatterplot
     window[`${tabId}Chart`] = new Chart(ctx, {
         type: "scatter",
@@ -60,7 +62,7 @@ function renderScatterplot(tabId, data) {
             datasets: [{
                 label: `${tabId} Scatterplot`,
                 data: data.map(entry => ({ x: entry.score2, y: entry.score, label: entry.name })),
-                backgroundColor: "navy",
+                backgroundColor: colors,
                 pointRadius: 6,
                 pointHoverRadius: 8
             }]
