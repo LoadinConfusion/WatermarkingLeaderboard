@@ -53,19 +53,22 @@ function renderScatterplot(tabId, data) {
         window[`${tabId}Chart`].destroy();
     }
 
+    // Sort data alphabetically by name to ensure consistent legend order
+    const sortedData = [...data].sort((a, b) => a.name.localeCompare(b.name));
+
     // Predefined distinct colors
     const predefinedColors = [
         "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF", "#33FFF5", "#F5FF33", "#FF8C33"
     ];
 
     // Generate unique colors for each data point
-    const colors = data.map((_, index) => predefinedColors[index % predefinedColors.length] || `hsl(${Math.random() * 360}, 70%, 50%)`);
+    const colors = sortedData.map((_, index) => predefinedColors[index % predefinedColors.length] || `hsl(${Math.random() * 360}, 70%, 50%)`);
 
     // Create scatterplot
     window[`${tabId}Chart`] = new Chart(ctx, {
         type: "scatter",
         data: {
-            datasets: data.map((entry, index) => ({
+            datasets: sortedData.map((entry, index) => ({
                 label: entry.name, // Use the software name as the legend label
                 data: [{ x: entry.score2, y: entry.score }], // Single data point per dataset
                 backgroundColor: colors[index], // Assign unique color
