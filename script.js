@@ -71,7 +71,7 @@ function renderScatterplot(tabId, data) {
 
     svg.append("g")
         .call(d3.axisLeft(yScale));
-}
+};
 
 // Initialize leaderboards on page load
 document.addEventListener("DOMContentLoaded", () => {
