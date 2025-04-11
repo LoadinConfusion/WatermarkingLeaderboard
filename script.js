@@ -113,7 +113,16 @@ function renderScatterplot(tabId, data) {
 
 // Initialize leaderboards on page load
 document.addEventListener("DOMContentLoaded", () => {
-    populateLeaderboard("attack-free"); // Default tab
+    // Attach event listeners to tab buttons
+    document.querySelectorAll(".tab-button").forEach(button => {
+        button.addEventListener("click", (event) => {
+            const tabId = button.getAttribute("data-tab");
+            switchTab(event, tabId);
+        });
+    });
+
+    // Initialize the default tab
+    populateLeaderboard("attack-free");
 });
 
 // Tab switching functionality
