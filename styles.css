@@ -123,6 +123,8 @@ footer a:hover {
     padding: 10px 0;
     position: sticky;
     top: 0;
+    margin: 0;
+    border-top: 0;
     z-index: 1000;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -176,7 +178,7 @@ section p {
 
 .side-margins {
     background: linear-gradient(to bottom, #394867, #1E293B); /* Gradient/color background, fix if needed */
-    padding: 20px 0;
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
