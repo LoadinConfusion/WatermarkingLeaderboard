@@ -176,7 +176,7 @@ section p {
 
 .side-margins {
     background: linear-gradient(to bottom, #394867, #1E293B); /* Gradient/color background, fix if needed */
-    padding: 30px 0;
+    padding: 20px 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
