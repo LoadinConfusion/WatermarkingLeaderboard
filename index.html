@@ -7,87 +7,91 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Scatterplot link-->
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="#leaderboard">Leaderboard</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#references">References</a></li>
-        </ul>
-    </nav>
+    <div class="side-margins">
+        <div class="container">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </nav>
 
-    <!-- Main Content -->
-    <h1 id="leaderboard">Watermark Leaderboard</h1>
-    <p>Scatterplot and Leaderboard regarding current softwares available for application, detection, and persistence of watermarks using LLM.</p>
-    <!--<h2>Leaderboard</h2> -->
-    <!-- Tabs for leaderboard sections -->
-    <div class="tabs">
-        <button class="tab-button active" onclick="switchTab(event, 'attack-free')">Attack-Free Environment</button>
-        <button class="tab-button" onclick="switchTab(event, 'attack-1')">Attack 1</button>
-        <button class="tab-button" onclick="switchTab(event, 'attack-2')">Attack 2</button>
+            <!-- Main Content -->
+            <h1 id="leaderboard">Watermark Leaderboard</h1>
+            <p>Scatterplot and Leaderboard regarding current softwares available for application, detection, and persistence of watermarks using LLM.</p>
+            <!--<h2>Leaderboard</h2> -->
+            <!-- Tabs for leaderboard sections -->
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab(event, 'attack-free')">Attack-Free Environment</button>
+                <button class="tab-button" onclick="switchTab(event, 'attack-1')">Attack 1</button>
+                <button class="tab-button" onclick="switchTab(event, 'attack-2')">Attack 2</button>
+            </div>
+
+            <!-- Attack-Free Environment Leaderboard -->
+            <div id="attack-free" class="tab-content active">
+                <h2>Leaderboard - Attack-Free Environment</h2>
+                <canvas id="scatter-attack-free"></canvas> <!--scatterplot-->
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>Ranking</th>
+                            <th>WM</th>
+                            <th>Detectability</th>
+                            <th>Normalized Utility</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attack-free-body"></tbody>
+                </table>
+            </div>
+
+            <!-- Attack 1 Leaderboard -->
+            <div id="attack-1" class="tab-content">
+                <h2>Leaderboard - Attack 1</h2>
+                <canvas id="scatter-attack-1"></canvas> <!--scatterplot-->
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>Ranking</th>
+                            <th>WM</th>
+                            <th>Detectability</th>
+                            <th>Normalized Utility</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attack-1-body"></tbody>
+                </table>
+            </div>
+
+            <!-- Attack 2 Leaderboard -->
+            <div id="attack-2" class="tab-content">
+                <h2>Leaderboard - Attack 2</h2>
+                <canvas id="scatter-attack-2"></canvas> <!--scatterplot-->
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>Ranking</th>
+                            <th>WM</th>
+                            <th>Detectability</th>
+                            <th>Normalized Utility</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attack-2-body"></tbody>
+                </table>
+            </div>
+
+            <!-- About Section -->
+            <section id="about">
+                <h2>About</h2>
+                <p>This website provides a comprehensive leaderboard and scatterplot analysis of watermarking software for LLMs. It evaluates their detectability, normalized utility, and performance under various conditions, such as for attacks.</p>
+            </section>
+
+            <!-- References Section -->
+            <section id="references">
+                <h2>References</h2>
+                <p>[References will be here]</p>
+            </section>
+        </div>
     </div>
-
-    <!-- Attack-Free Environment Leaderboard -->
-    <div id="attack-free" class="tab-content active">
-        <h2>Leaderboard - Attack-Free Environment</h2>
-        <canvas id="scatter-attack-free"></canvas> <!--scatterplot-->
-        <table class="leaderboard">
-            <thead>
-                <tr>
-                    <th>Ranking</th>
-                    <th>WM</th>
-                    <th>Detectability</th>
-                    <th>Normalized Utility</th>
-                </tr>
-            </thead>
-            <tbody id="attack-free-body"></tbody>
-        </table>
-    </div>
-
-    <!-- Attack 1 Leaderboard -->
-    <div id="attack-1" class="tab-content">
-        <h2>Leaderboard - Attack 1</h2>
-        <canvas id="scatter-attack-1"></canvas> <!--scatterplot-->
-        <table class="leaderboard">
-            <thead>
-                <tr>
-                    <th>Ranking</th>
-                    <th>WM</th>
-                    <th>Detectability</th>
-                    <th>Normalized Utility</th>
-                </tr>
-            </thead>
-            <tbody id="attack-1-body"></tbody>
-        </table>
-    </div>
-
-    <!-- Attack 2 Leaderboard -->
-    <div id="attack-2" class="tab-content">
-        <h2>Leaderboard - Attack 2</h2>
-        <canvas id="scatter-attack-2"></canvas> <!--scatterplot-->
-        <table class="leaderboard">
-            <thead>
-                <tr>
-                    <th>Ranking</th>
-                    <th>WM</th>
-                    <th>Detectability</th>
-                    <th>Normalized Utility</th>
-                </tr>
-            </thead>
-            <tbody id="attack-2-body"></tbody>
-        </table>
-    </div>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About</h2>
-        <p>This website provides a comprehensive leaderboard and scatterplot analysis of watermarking software for LLMs. It evaluates their detectability, normalized utility, and performance under various conditions, such as for attacks.</p>
-    </section>
-
-    <!-- References Section -->
-    <section id="references">
-        <h2>References</h2>
-        <p>[References will be here]</p>
-    </section>
 
     <footer>
         <p>Watermarking Leaderboard in the works [more information to be added later]</a></p>

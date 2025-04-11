@@ -173,3 +173,18 @@ section p {
     font-size: 1rem;
     line-height: 1.6;
 }
+
+.side-margins {
+    background: linear-gradient(to bottom, #394867, #1E293B); /* Gradient/color background, fix if needed */
+    padding: 20px 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    background: white; /* Background color */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners change to square soon */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* shadow (maybe remove) */
+}
