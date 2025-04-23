@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
         body.classList.add("dark-mode");
-        themeToggleCheckbox.checked = true;
+        themeToggleCheckbox.checked = true; // Ensure the toggle is in the correct position
     }
 
     // Add event listener to toggle switch
