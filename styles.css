@@ -206,7 +206,7 @@ section p {
 /* Label for the toggle */
 #theme-label {
     font-size: 1rem;
-    color: #212A3E; /* Default text color for light mode */
+    color: #F8FAFC; /* Default text color for light mode */
     transition: color 0.3s; /* Smooth transition for dark mode */
 }
 
@@ -243,12 +243,13 @@ body.dark-mode #theme-label {
     border-radius: 25px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 0 3px;
 }
 
 /* Slider circle */
 .theme-toggle .slider:before {
-    position: absolute;
+    position: relative;
     content: "";
     height: 19px;
     width: 19px;
@@ -262,6 +263,7 @@ body.dark-mode #theme-label {
 /* When the toggle is checked */
 .theme-toggle input:checked + .slider {
     background-color: #394867;
+    justify-content: flex-end;
 }
 
 .theme-toggle input:checked + .slider:before {
