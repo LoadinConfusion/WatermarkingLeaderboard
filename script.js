@@ -127,22 +127,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggleCheckbox = document.getElementById("theme-toggle");
+    const themeLabel = document.getElementById("theme-label");
     const body = document.body;
 
     // Check for saved theme in localStorage
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
         body.classList.add("dark-mode");
-        themeToggleCheckbox.checked = true; // Ensure the toggle is in the correct position
+        themeToggleCheckbox.checked = true;
+        themeLabel.textContent = "Dark Mode"; // Update label text
     }
 
     // Add event listener to toggle switch
     themeToggleCheckbox.addEventListener("change", () => {
         if (themeToggleCheckbox.checked) {
             body.classList.add("dark-mode");
+            themeLabel.textContent = "Dark Mode"; // Update label text
             localStorage.setItem("theme", "dark"); // Save theme preference
         } else {
             body.classList.remove("dark-mode");
+            themeLabel.textContent = "Light Mode"; // Update label text
             localStorage.setItem("theme", "light"); // Save theme preference
         }
     });

@@ -199,7 +199,20 @@ section p {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px; /* Add space between the toggle and the label */
     margin: 10px;
+}
+
+/* Label for the toggle */
+#theme-label {
+    font-size: 1rem;
+    color: #212A3E; /* Default text color for light mode */
+    transition: color 0.3s; /* Smooth transition for dark mode */
+}
+
+/* Dark mode label color */
+body.dark-mode #theme-label {
+    color: #F8FAFC; /* Light text color for dark mode */
 }
 
 /* Toggle switch container */
