@@ -154,12 +154,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to update scatterplot colors
 function updateScatterplotColors(isDarkMode) {
-    const scatterplots = Chart.instances; // Get all Chart.js instances
+    const scatterplots = Object.values(Chart.instances); // Get all Chart.js instances
     scatterplots.forEach(chart => {
+        // Update grid line colors
         chart.options.scales.x.grid.color = isDarkMode ? '#F8FAFC' : '#CBD5E1'; // X-axis grid lines
         chart.options.scales.y.grid.color = isDarkMode ? '#F8FAFC' : '#CBD5E1'; // Y-axis grid lines
-        chart.options.plugins.legend.labels.color = isDarkMode ? '#F8FAFC' : '#212A3E'; // Legend text
-        chart.update(); // Apply changes
+
+        // Update axis label colors
+        chart.options.scales.x.title.color = isDarkMode ? '#F8FAFC' : '#212A3E'; // X-axis title
+        chart.options.scales.y.title.color = isDarkMode ? '#F8FAFC' : '#212A3E'; // Y-axis title
+
+        // Update tick colors
+        chart.options.scales.x.ticks.color = isDarkMode ? '#F8FAFC' : '#212A3E'; // X-axis ticks
+        chart.options.scales.y.ticks.color = isDarkMode ? '#F8FAFC' : '#212A3E'; // Y-axis ticks
+
+        // Update legend text color
+        chart.options.plugins.legend.labels.color = isDarkMode ? '#F8FAFC' : '#212A3E';
+
+        // Update tooltip text color
+        chart.options.plugins.tooltip.bodyColor = isDarkMode ? '#F8FAFC' : '#212A3E';
+        chart.options.plugins.tooltip.backgroundColor = isDarkMode ? '#394867' : '#FFFFFF';
+
+        // Apply changes
+        chart.update();
     });
 }
 
@@ -176,6 +193,12 @@ themeToggleCheckbox.addEventListener("change", () => {
         localStorage.setItem("theme", "light");
     }
     updateScatterplotColors(isDarkMode); // Update scatterplot colors
+});
+
+// Call the function on page load to apply the correct theme
+document.addEventListener("DOMContentLoaded", () => {
+    const isDarkMode = localStorage.getItem("theme") === "dark";
+    updateScatterplotColors(isDarkMode);
 });
 
 // Tab switching functionality
