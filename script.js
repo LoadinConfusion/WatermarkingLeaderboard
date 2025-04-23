@@ -152,6 +152,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Function to update scatterplot colors
+function updateScatterplotColors(isDarkMode) {
+    const scatterplots = Chart.instances; // Get all Chart.js instances
+    scatterplots.forEach(chart => {
+        chart.options.scales.x.grid.color = isDarkMode ? '#F8FAFC' : '#CBD5E1'; // X-axis grid lines
+        chart.options.scales.y.grid.color = isDarkMode ? '#F8FAFC' : '#CBD5E1'; // Y-axis grid lines
+        chart.options.plugins.legend.labels.color = isDarkMode ? '#F8FAFC' : '#212A3E'; // Legend text
+        chart.update(); // Apply changes
+    });
+}
+
+// Add this inside your theme toggle logic
+themeToggleCheckbox.addEventListener("change", () => {
+    const isDarkMode = themeToggleCheckbox.checked;
+    if (isDarkMode) {
+        body.classList.add("dark-mode");
+        themeLabel.textContent = "Dark Mode";
+        localStorage.setItem("theme", "dark");
+    } else {
+        body.classList.remove("dark-mode");
+        themeLabel.textContent = "Light Mode";
+        localStorage.setItem("theme", "light");
+    }
+    updateScatterplotColors(isDarkMode); // Update scatterplot colors
+});
+
 // Tab switching functionality
 function switchTab(event, tabId) {
     // Hide all tab content (including headers)
