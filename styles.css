@@ -305,15 +305,17 @@ body.dark-mode a:hover {
 }
 
 body.dark-mode .container {
-    background: #394867; /* Dark container background */
+    background: #1E293B; /* Dark container background */
     color: #F8FAFC; /* Light text */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Adjust shadow for dark mode */
 }
 
+/*
 body.dark-mode footer {
     background: #394867;
     color: #F8FAFC;
 }
+*/
 
 body.dark-mode .tab-button {
     background-color: #394867;
