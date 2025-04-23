@@ -281,6 +281,24 @@ body.dark-mode p {
     color: #F8FAFC; /* White text */
 }
 
+/* Section in Light Mode (Default) */
+section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: white; /* Light background */
+    color: #212A3E; /* Dark text */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Section in Dark Mode */
+body.dark-mode section {
+    background: #394867; /* Dark background */
+    color: #F8FAFC; /* Light text */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Adjust shadow for dark mode */
+}
+
 /* Links in Dark Mode */
 body.dark-mode a {
     color: #F8FAFC; /* White links */
