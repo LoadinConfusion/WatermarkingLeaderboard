@@ -180,23 +180,35 @@ function updateScatterplotColors(isDarkMode) {
     });
 }
 
-// Add this inside your theme toggle logic
-themeToggleCheckbox.addEventListener("change", () => {
-    const isDarkMode = themeToggleCheckbox.checked;
-    if (isDarkMode) {
-        body.classList.add("dark-mode");
-        themeLabel.textContent = "Dark Mode";
-        localStorage.setItem("theme", "dark");
-    } else {
-        body.classList.remove("dark-mode");
-        themeLabel.textContent = "Light Mode";
-        localStorage.setItem("theme", "light");
-    }
-    updateScatterplotColors(isDarkMode); // Update scatterplot colors
-});
-
-// Call the function on page load to apply the correct theme
 document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleCheckbox = document.getElementById("theme-toggle");
+    const themeLabel = document.getElementById("theme-label");
+    const body = document.body;
+
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        themeToggleCheckbox.checked = true;
+        themeLabel.textContent = "Dark Mode"; // Update label text
+    }
+
+    // Add event listener to toggle switch
+    themeToggleCheckbox.addEventListener("change", () => {
+        const isDarkMode = themeToggleCheckbox.checked;
+        if (isDarkMode) {
+            body.classList.add("dark-mode");
+            themeLabel.textContent = "Dark Mode";
+            localStorage.setItem("theme", "dark");
+        } else {
+            body.classList.remove("dark-mode");
+            themeLabel.textContent = "Light Mode";
+            localStorage.setItem("theme", "light");
+        }
+        updateScatterplotColors(isDarkMode); // Update scatterplot colors
+    });
+
+    // Call the function on page load to apply the correct theme
     const isDarkMode = localStorage.getItem("theme") === "dark";
     updateScatterplotColors(isDarkMode);
 });
