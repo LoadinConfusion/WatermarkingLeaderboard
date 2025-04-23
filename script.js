@@ -125,6 +125,29 @@ document.addEventListener("DOMContentLoaded", () => {
     populateLeaderboard("attack-free");
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleCheckbox = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        themeToggleCheckbox.checked = true;
+    }
+
+    // Add event listener to toggle switch
+    themeToggleCheckbox.addEventListener("change", () => {
+        if (themeToggleCheckbox.checked) {
+            body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark"); // Save theme preference
+        } else {
+            body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light"); // Save theme preference
+        }
+    });
+});
+
 // Tab switching functionality
 function switchTab(event, tabId) {
     // Hide all tab content (including headers)

@@ -193,3 +193,120 @@ section p {
     border-radius: 8px; /* Rounded corners change to square soon */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* shadow (maybe remove) */
 }
+
+/* Wrapper for the toggle switch */
+.theme-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Toggle switch container */
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+/* Hide the default checkbox */
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider styling */
+.theme-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+/* Slider circle */
+.theme-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* When the toggle is checked */
+.theme-toggle input:checked + .slider {
+    background-color: #394867;
+}
+
+.theme-toggle input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #1E293B; /* Dark background */
+    color: #F8FAFC; /* Light text */
+}
+
+.navbar.dark-mode {
+    background-color: #1E293B; /* Dark navbar background */
+    color: #F8FAFC;
+}
+
+.navbar.dark-mode ul li a {
+    color: #F8FAFC;
+}
+
+.navbar.dark-mode ul li a:hover {
+    background-color: #394867;
+    color: #F8FAFC;
+}
+
+.container.dark-mode {
+    background: #394867; /* Dark container background */
+    color: #F8FAFC;
+}
+
+body.dark-mode footer {
+    background: #394867;
+    color: #F8FAFC;
+}
+
+body.dark-mode .tab-button {
+    background-color: #394867;
+    color: #F8FAFC;
+}
+
+body.dark-mode .tab-button.active {
+    background-color: #1E293B;
+    color: #F8FAFC;
+}
+
+/* Dark Mode for Table */
+body.dark-mode table {
+    background: #394867;
+    color: #F8FAFC;
+}
+
+body.dark-mode th {
+    background: #1E293B;
+    color: #F8FAFC;
+}
+
+body.dark-mode tr:nth-child(even) {
+    background: #2D3748;
+}
+
+body.dark-mode tr:nth-child(odd) {
+    background: #394867;
+}
