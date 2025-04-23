@@ -241,6 +241,9 @@ body.dark-mode #theme-label {
     background-color: #ccc;
     transition: 0.4s;
     border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Slider circle */
