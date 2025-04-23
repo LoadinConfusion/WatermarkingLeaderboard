@@ -267,7 +267,7 @@ body.dark-mode #theme-label {
 }
 
 .theme-toggle input:checked + .slider:before {
-    transform: translateX(25px);
+    transform: translateX(0);
 }
 
 /* Dark Mode */
