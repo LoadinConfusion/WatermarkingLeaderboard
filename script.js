@@ -109,6 +109,8 @@ function renderScatterplot(tabId, data) {
             }
         }
     });
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    updateScatterplotColors(isDarkMode);
 }
 
 // Initialize leaderboards on page load
@@ -180,6 +182,11 @@ function updateScatterplotColors(isDarkMode) {
     });
 }
 
+function onTabSwitch() {
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    updateScatterplotColors(isDarkMode);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggleCheckbox = document.getElementById("theme-toggle");
     const themeLabel = document.getElementById("theme-label");
@@ -231,4 +238,7 @@ function switchTab(event, tabId) {
 
     // Populate leaderboard for the selected tab
     populateLeaderboard(tabId);
+
+    // Update scatterplot colors after switching tabs
+    onTabSwitch();
 }
